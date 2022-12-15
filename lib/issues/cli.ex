@@ -32,7 +32,18 @@ defmodule Issues.CLI do
     System.halt(0)
   end
 
-  def process({user, project, _count}), do: Issues.GithubIssues.fetch(user, project)
+  def process({user, project, _count}) do
+    Issues.GithubIssues.fetch(user, project)
+    |> decode_response()
+  end
+
+  defp decode_response({:ok, body}), do: body
+
+  defp decode_response({:error, error}) do
+    IO.puts("Error fetching from GitHub: #{error["message"]}")
+
+    System.halt(2)
+  end
 
   defp args_to_internal_representation([user, project, count]),
     do: {user, project, String.to_integer(count)}

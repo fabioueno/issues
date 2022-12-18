@@ -8,8 +8,15 @@ defmodule Issues.MixProject do
       elixir: "~> 1.14",
       escript: escript_config(),
       name: "Issues",
+      preferred_cli_env: [
+        "coveralls": :test,
+        "coveralls.detail": :test,
+        "coveralls.post": :test,
+        "coveralls.html": :test
+      ],
       source_url: "https://github.com/fabioueno/issues",
       start_permanent: Mix.env() == :prod,
+      test_coverage: [tool: ExCoveralls],
       version: "0.1.0",
     ]
   end
@@ -26,6 +33,7 @@ defmodule Issues.MixProject do
     [
       {:earmark, "~> 1.4.34"},
       {:ex_doc, "~> 0.29.1"},
+      {:excoveralls, "~> 0.15.1"},
       {:httpoison, "~> 1.8"},
       {:poison, "~> 5.0"}
     ]

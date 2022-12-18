@@ -4,11 +4,13 @@ defmodule Issues.MixProject do
   def project do
     [
       app: :issues,
-      escript: escript_config(),
-      version: "0.1.0",
+      deps: deps(),
       elixir: "~> 1.14",
+      escript: escript_config(),
+      name: "Issues",
+      source_url: "https://github.com/fabioueno/issues",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      version: "0.1.0",
     ]
   end
 
@@ -22,6 +24,8 @@ defmodule Issues.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
+      {:earmark, "~> 1.4.34"},
+      {:ex_doc, "~> 0.29.1"},
       {:httpoison, "~> 1.8"},
       {:poison, "~> 5.0"}
     ]

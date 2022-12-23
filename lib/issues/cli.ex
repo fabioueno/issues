@@ -28,13 +28,13 @@ defmodule Issues.CLI do
     |> args_to_internal_representation()
   end
 
-  def process(:help) do
+  defp process(:help) do
     IO.puts("Usage: issues <user> <project> [ count | #{@default_count} ]")
 
     System.halt(0)
   end
 
-  def process({user, project, count}) do
+  defp process({user, project, count}) do
     Issues.GithubIssues.fetch(user, project)
     |> decode_response()
     |> sort_into_descending_order()

@@ -1,12 +1,10 @@
 defmodule Issues.CLI do
-  import Issues.TableFormatter, only: [print_table_for_columns: 2]
-
-  @default_count 4
-
   @moduledoc """
   Handle the command line parsing and the dispatch to the various functions
   that end up generating a table of the last _n_ issues in a Github project.
   """
+
+  import Issues.TableFormatter, only: [print_table_for_columns: 2]
 
   def main(argv) do
     argv
@@ -28,6 +26,8 @@ defmodule Issues.CLI do
     |> elem(1)
     |> args_to_internal_representation()
   end
+
+  @default_count 4
 
   defp process(:help) do
     IO.puts("Usage: issues <user> <project> [ count | #{@default_count} ]")

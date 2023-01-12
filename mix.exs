@@ -32,6 +32,7 @@ defmodule Issues.MixProject do
   defp deps do
     [
       {:credo, "~> 1.6.7", only: [:dev, :test], runtime: false},
+      {:credo_contrib, "~> 0.2.0", only: [:dev, :test], runtime: false},
       {:earmark, "~> 1.4.34"},
       {:ex_doc, "~> 0.29.1", only: :dev, runtime: false},
       {:excoveralls, "~> 0.15.2", only: :test},

@@ -26,8 +26,8 @@ defmodule Issues.GithubIssues do
     Logger.debug(fn -> inspect(body) end)
 
     {
-      status_code |> check_for_error(),
-      body |> Poison.Parser.parse!()
+      check_for_error(status_code),
+      Poison.Parser.parse!(body)
     }
   end
 

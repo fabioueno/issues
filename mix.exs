@@ -31,11 +31,12 @@ defmodule Issues.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
+      {:credo, "~> 1.6.7", only: [:dev, :test], runtime: false},
       {:earmark, "~> 1.4.34"},
-      {:ex_doc, "~> 0.29.1"},
-      {:excoveralls, "~> 0.15.1"},
-      {:httpoison, "~> 1.8"},
-      {:poison, "~> 5.0"}
+      {:ex_doc, "~> 0.29.1", only: :dev, runtime: false},
+      {:excoveralls, "~> 0.15.2", only: :test},
+      {:httpoison, "~> 1.8.2"},
+      {:poison, "~> 5.0.0"}
     ]
   end
 

@@ -1,7 +1,7 @@
 defmodule CliTest do
   use ExUnit.Case
 
-  doctest Issues
+  doctest Issues.CLI
 
   import Issues.CLI, only: [parse_args: 1, sort_into_descending_order: 1]
 

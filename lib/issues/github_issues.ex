@@ -6,7 +6,8 @@ defmodule Issues.GithubIssues do
   def fetch(user, project) do
     Logger.info("Fetching #{user}'s project #{project}")
 
-    issues_url(user, project)
+    user
+    |> issues_url(project)
     |> HTTPoison.get(@user_agent)
     |> handle_response()
   end

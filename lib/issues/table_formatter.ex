@@ -13,7 +13,9 @@ defmodule Issues.TableFormatter do
          column_widths = widths_of(data_by_columns),
          format = format_for(column_widths) do
       puts_one_line_in_columns(headers, format)
+
       IO.puts(separator(column_widths))
+
       puts_in_columns(data_by_columns, format)
     end
   end

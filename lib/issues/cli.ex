@@ -23,7 +23,8 @@ defmodule Issues.CLI do
   Returns a tuple of `{ user, project, count }`, or `:help` if help was given.
   """
   def parse_args(argv) do
-    OptionParser.parse(argv, switches: [help: :boolean], aliases: [h: :help])
+    argv
+    |> OptionParser.parse(switches: [help: :boolean], aliases: [h: :help])
     |> elem(1)
     |> args_to_internal_representation()
   end
@@ -35,7 +36,8 @@ defmodule Issues.CLI do
   end
 
   defp process({user, project, count}) do
-    Issues.GithubIssues.fetch(user, project)
+    user
+    |> Issues.GithubIssues.fetch(project)
     |> decode_response()
     |> sort_into_descending_order()
     |> last(count)

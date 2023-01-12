@@ -1,4 +1,9 @@
 defmodule Issues.TableFormatter do
+  @moduledoc """
+  Receives a JSON (Map) and outputs a formatted table according to informed
+  headers. The length of each column is dynamic to fit the data.
+  """
+
   import Enum, only: [each: 2, map: 2, map_join: 3, max: 1]
 
   @doc """
@@ -9,9 +14,9 @@ defmodule Issues.TableFormatter do
   to fit the longest element in that column.
   """
   def print_table_for_columns(rows, headers) do
-    with data_by_columns = split_into_columns(rows, headers),
-         column_widths = widths_of(data_by_columns),
-         format = format_for(column_widths) do
+    with data_by_columns <- split_into_columns(rows, headers),
+         column_widths <- widths_of(data_by_columns),
+         format <- format_for(column_widths) do
       puts_one_line_in_columns(headers, format)
 
       IO.puts(separator(column_widths))

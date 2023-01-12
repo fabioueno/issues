@@ -1,4 +1,9 @@
 defmodule Issues.GithubIssues do
+  @moduledoc"""
+  Deals with communication with GitHub, by encapsulating all HTTP request with
+  URL, headers and parsing of the response.
+  """
+
   require Logger
 
   @user_agent [{"User-agent", "Elixir dave@pragprog.com"}]

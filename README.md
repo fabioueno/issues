@@ -1,7 +1,7 @@
 # Issues
 
 This project is used to fetch GitHub issues, and was created while following
-`Programming Elixir 1.6` book, chapter 13 and 14.
+[Programming Elixir 1.6][1] book, chapter 13 and 14.
 
 ## Usage
 
@@ -17,3 +17,5 @@ To run, simply type in your terminal:
 
 For instance, `./issues elixir-lang elixir 10` would fetch the 10 latest open
 issues in Elixir's repository, and output in a nice table.
+
+[1]: https://pragprog.com/titles/elixir16/programming-elixir-1-6
